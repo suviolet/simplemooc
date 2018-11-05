@@ -4,9 +4,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls, name='admin'),
     path('', include('simplemooc.urls', namespace='simplemooc')), 
-    path('cursos/', include('courses.urls', namespace='courses')), 
+    path('conta/', include('accounts.urls', namespace='accounts')),
+    path('cursos/', include('courses.urls', namespace='courses')),
+    path('admin/', admin.site.urls, name='admin'),
 ]
 
 if settings.DEBUG:
