@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'simplemooc',
     'accounts',
     'courses',
@@ -122,8 +123,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 
 # E-mails
 # DEFAULT_FROM_EMAIL = 'Nome <email@gmail.com>'
@@ -133,11 +135,12 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'youremail@gmail.com'
 EMAIL_HOST_PASSWORD = 'yourpassword'
 EMAIL_PORT = 587
-# necessário por os dados de um e-mail existente e desativar o console
+# Necessário por os dados de um e-mail existente e desativar o console
 CONTACT_EMAIL = 'contato@simplemooc.com'
 
 
-# auth
+# Auth
 LOGIN_URL = 'accounts:login'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'simplemooc:home'
 LOGOUT_URL = 'accounts:logout'
+AUTH_USER_MODEL = 'accounts.User'
