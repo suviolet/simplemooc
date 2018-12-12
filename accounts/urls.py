@@ -1,7 +1,8 @@
 from django.conf.urls import include, url
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
-from accounts.views import dashboard, register, edit, edit_password
+from accounts.views import (dashboard, register, edit, edit_password, 
+    password_reset, password_reset_confirm)
 
 
 app_name = 'accounts'
@@ -21,6 +22,12 @@ urlpatterns = [
     ),
     path(
         'cadastre-se/', register, name='register'
+    ),
+    path(
+        'nova-senha/(<key>\w+)/', password_reset, name='password_reset'
+    ),
+    path(
+        'confirmar-nova-senha/', password_reset_confirm, name='password_reset_confirm'
     ),
     path(
         'editar/', edit, name='edit'
